@@ -38,8 +38,8 @@ func (s *FactService) GetFact(ctx context.Context) (*types.Fact, error) {
 	// ensure it is closed before we return from the GetFact function
 	defer response.Body.Close()
 
-	// we initialize a new Fact struct to hold the response
-	fact := new(types.Fact)
+	// we initialize our Fact struct
+	fact := &types.Fact{}
 
 	// we decode the response body into our Fact struct
 	if err := json.NewDecoder(response.Body).Decode(fact); err != nil {
