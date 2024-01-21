@@ -26,7 +26,7 @@ func (s *LoggingService) GetFact(ctx context.Context) (fact *types.Fact, err err
 
 	// we defer the logging of the request and response
 	defer func(start time.Time) {
-		fmt.Printf("======== LOGS ========\n%v\n", time.Now())
+		fmt.Printf("======== LOGS ========\n%v\n", time.Now().UTC())
 		fmt.Printf("fact: %s\nerr: %v\ntime: %v\n", fact.Message, err, time.Since(start))
 	}(time.Now()) // we pass the current time to calculate the time taken by the request
 

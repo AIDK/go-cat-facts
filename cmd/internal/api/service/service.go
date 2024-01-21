@@ -34,6 +34,9 @@ func (s *FactService) GetFact(ctx context.Context) (*types.Fact, error) {
 		return nil, err
 	}
 
+	// sample response:
+	//{"fact":"A cat's field of vision is about 200 degrees.","length":45}
+
 	// we defer the closing of the response body so that we can
 	// ensure it is closed before we return from the GetFact function
 	defer response.Body.Close()
